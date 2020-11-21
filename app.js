@@ -17,6 +17,12 @@ app.get("/", (req, res) => {
   res.render("index", data);
 });
 
+app.get("/test/:beerId", (req, res) => {
+  const { beerId } = req.params;
+  console.log(beerId);
+  res.send(`${beerId}`);
+});
+
 app.get("/list", (req, res) => {
   res.render("list", {
     cities: cities,
