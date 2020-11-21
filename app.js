@@ -2,6 +2,10 @@ const express = require("express");
 const { data, players, cities } = require("./data");
 const app = express();
 const hbs = require("hbs");
+const PunkAPIWrapper = require("punkapi-javascript-wrapper");
+
+const punkApi = new PunkAPIWrapper();
+
 hbs.registerPartials(`${__dirname}/views/partials`);
 
 app.use(express.static("public"));
@@ -22,6 +26,11 @@ app.get("/list", (req, res) => {
     },
     players: players,
   });
+});
+
+app.get("/beers", async (req, res) => {
+  const beers = await punkApi.getBeers();
+  res.render("list", { beers });
 });
 
 app.listen(5555, () => {
