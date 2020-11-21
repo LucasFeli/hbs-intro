@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+</head>
+
+<body>
+    {{#each players}}
+    <p>{{@index}}: {{name}}</p>
+    <p>{{lastName}}</p>
+    <img src="{{photo}}" alt="">
+    {{#if team}}
+    <p>this is my team: {{team}}</p>
+    {{/if}}
+    {{#each average}}
+    <p>{{@index}}: {{year}}</p>
+    {{/each}}
+    {{/each}}
+</body>
+
+</html>
