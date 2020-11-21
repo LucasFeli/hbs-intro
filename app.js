@@ -1,6 +1,8 @@
 const express = require("express");
 const { data, players, cities } = require("./data");
 const app = express();
+const hbs = require("hbs");
+hbs.registerPartials(`${__dirname}/views/partials`);
 
 app.use(express.static("public"));
 const viewsPath = `${__dirname}/views`;
